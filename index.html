@@ -322,8 +322,6 @@ html, body {
   .ov-btn { padding: 10px 28px; font-size: 0.78rem; }
 
   /* Toast higher up on mobile to avoid thumb area */
-  #pu-toast { bottom: 80px !important; font-size: 0.72rem !important; }
-
   .mhud-val { font-size: 1.1rem; }
   .mhud-label { font-size: 0.45rem; }
 }
@@ -741,15 +739,14 @@ function flap() {
 
 // Input
 document.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT') return; // Ignore while typing
   if (e.code === 'Space') { e.preventDefault(); flap(); }
 });
 document.addEventListener('click', e => {
-  if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+  if (e.target.tagName === 'BUTTON') return;
   flap();
 });
 canvas.addEventListener('touchstart', e => { 
-  if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+  if (e.target.tagName === 'BUTTON') return;
   e.preventDefault(); 
   flap(); 
 }, { passive: false });
